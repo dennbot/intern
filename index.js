@@ -1,73 +1,34 @@
 const headerEl = document.querySelector('.header');
-
+const headerDropdownMenu = document.querySelector('.dropdown-menu');
 window.addEventListener('scroll', () => {
     if(window.scrollY > 50){
         headerEl.classList.add('header-scrolled')
+        headerDropdownMenu.style.backgroundColor="black";
+        headerDropdownMenu.style.backdropFilter="none";
+        headerDropdownMenu.style.transition = "all 0.5s ease";
     } else if(window.scrollY <= 50){
         headerEl.classList.remove('header-scrolled')
+        headerDropdownMenu.style.backgroundColor = "rgba(255, 255, 255, 0.1)";
+        headerDropdownMenu.style.backdropFilter = "blur(15px)";
     }
 });
 
-var acc = document.getElementsByClassName("accordion-1");
-var i;
+document.addEventListener("DOMContentLoaded", function() {
+  var acc = document.getElementsByClassName("accordion");
+  var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-
-var acc = document.getElementsByClassName("accordion-2");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-
-var acc = document.getElementsByClassName("accordion-3");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-
-var acc = document.getElementsByClassName("accordion-4");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-
+  for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function() {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+          } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+          } 
+      });
+  }
+});
 const wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
@@ -144,6 +105,28 @@ const autoPlay = () => {
     // Autoplay the carousel after every 2500 ms
     timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
 }
+const toggleBtn = document.querySelector(".toggle-btn");
+const toggleBtnIcon = document.querySelector(".toggle-btn i");
+const dropDownMenu = document.querySelector(".dropdown-menu");
+
+toggleBtn.onclick = function () {
+    dropDownMenu.classList.toggle("open");
+    const isOpen = dropDownMenu.classList.contains("open");
+
+    toggleBtnIcon.classList = isOpen
+        ? "fa-solid fa-xmark"
+        : "fa-solid fa-bars";
+};
+
+
+window.addEventListener("resize", function() {
+    if(window.innerWidth > 992) {
+        dropDownMenu.classList.remove("open");
+        toggleBtnIcon.classList = "fa-solid fa-bars";
+    }
+});
+
+
 autoPlay();
 
 carousel.addEventListener("mousedown", dragStart);
@@ -152,3 +135,4 @@ document.addEventListener("mouseup", dragStop);
 carousel.addEventListener("scroll", infiniteScroll);
 wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
 wrapper.addEventListener("mouseleave", autoPlay);
+
