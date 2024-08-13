@@ -29,6 +29,8 @@ document.addEventListener("DOMContentLoaded", function() {
       });
   }
 });
+
+
 const wrapper = document.querySelector(".wrapper");
 const carousel = document.querySelector(".carousel");
 const firstCardWidth = carousel.querySelector(".card").offsetWidth;
@@ -58,12 +60,13 @@ carousel.classList.remove("no-transition");
 // Add event listeners for the arrow buttons to scroll the carousel left and right
 arrowBtns.forEach(btn => {
     btn.addEventListener("click", () => {
-        carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+        carousel.scrollLeft += btn.id == "left" ? - firstCardWidth  : firstCardWidth;
     });
 });
 
 const dragStart = (e) => {
     isDragging = true;
+    carousel.classList.remove("scroll-snap");
     carousel.classList.add("dragging");
     // Records the initial cursor and scroll position of the carousel
     startX = e.pageX;
@@ -78,8 +81,10 @@ const dragging = (e) => {
 
 const dragStop = () => {
     isDragging = false;
+    carousel.classList.add("scroll-snap");
     carousel.classList.remove("dragging");
 }
+
 
 const infiniteScroll = () => {
     // If the carousel is at the beginning, scroll to the end
@@ -105,10 +110,21 @@ const autoPlay = () => {
     // Autoplay the carousel after every 2500 ms
     timeoutId = setTimeout(() => carousel.scrollLeft += firstCardWidth, 2500);
 }
+
+
+
+autoPlay();
+
+carousel.addEventListener("mousedown", dragStart);
+carousel.addEventListener("mousemove", dragging);
+document.addEventListener("mouseup", dragStop);
+carousel.addEventListener("scroll", infiniteScroll);
+wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
+wrapper.addEventListener("mouseleave", autoPlay);
+
 const toggleBtn = document.querySelector(".toggle-btn");
 const toggleBtnIcon = document.querySelector(".toggle-btn i");
 const dropDownMenu = document.querySelector(".dropdown-menu");
-
 toggleBtn.onclick = function () {
     dropDownMenu.classList.toggle("open");
     const isOpen = dropDownMenu.classList.contains("open");
@@ -125,14 +141,3 @@ window.addEventListener("resize", function() {
         toggleBtnIcon.classList = "fa-solid fa-bars";
     }
 });
-
-
-autoPlay();
-
-carousel.addEventListener("mousedown", dragStart);
-carousel.addEventListener("mousemove", dragging);
-document.addEventListener("mouseup", dragStop);
-carousel.addEventListener("scroll", infiniteScroll);
-wrapper.addEventListener("mouseenter", () => clearTimeout(timeoutId));
-wrapper.addEventListener("mouseleave", autoPlay);
-
