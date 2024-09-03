@@ -141,3 +141,20 @@ window.addEventListener("resize", function() {
         toggleBtnIcon.classList = "fa-solid fa-bars";
     }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const languageDropdown = document.getElementById('languageDropdown');
+    const dropdownMenu = languageDropdown.nextElementSibling;
+
+    languageDropdown.addEventListener('click', function(event) {
+        event.preventDefault();
+        dropdownMenu.classList.toggle('open');
+    });
+
+    // Close the dropdown if clicking outside of it
+    document.addEventListener('click', function(event) {
+        if (!languageDropdown.contains(event.target) && !dropdownMenu.contains(event.target)) {
+            dropdownMenu.classList.remove('open');
+        }
+    });
+});
