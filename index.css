@@ -94,8 +94,7 @@
 
 .dropdown-menu {
     position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
+    background:black;
     height: 0;
     width: 300px;
     left: 0;
@@ -204,140 +203,137 @@ ul {
 }
 
 
-    /* Hero */
+  /* Hero */
+.hero-container {
+    width: 100%;
+    height: 100vh;
+    padding-top: 400px; /* Changed as per request */
+    background: 
+        linear-gradient(
+            to bottom, 
+            rgba(0, 0, 0, 0.9) 0%, 
+            rgba(0, 0, 0, 0.7) 20%, 
+            rgba(0, 0, 0, 0.3) 40%, 
+            rgba(0, 0, 0, 0.3) 60%, 
+            rgba(0, 0, 0, 0.6) 80% /* Keeping full transparency */
+        ), 
+        url('assets/male-technician-installing-air-conditioner-facade-building.jpg'); /* Updated background image */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+}
+
+.hero-text h1 {
+    color: #F8F8FF;
+    font-size: 100px;
+}
+
+.hero-text h3 {
+    color: #f8f8ff;
+    font-size: 24px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.hero-button {
+    width: 200px;
+    height: 70px;
+    border-radius: 50px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 1px solid #f8f8ff;
+    background-color: transparent;
+    color: #f8f8ff;
+    font-size: 20px;
+    transition-duration: 0.4s;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1150px) {
     .hero-container {
-        width: 100%;
-        height: 100vh;
-        padding-top: 400px;
-        background: 
-            linear-gradient(
-                to bottom, 
-                rgba(0, 0, 0, 0.9) 0%, 
-                rgba(0, 0, 0, 0.7) 20%, 
-                rgba(0, 0, 0, 0.3) 40%, 
-                rgba(0, 0, 0, 0.3) 60%, 
-                rgba(0, 0, 0, 0.6) 80% /* Keeping full transparency */
-            ), 
-            url('assets/male-technician-installing-air-conditioner-facade-building.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        
+        align-items: center;
+        justify-content: center;
+        padding-top: 250px;
     }
 
     .hero-text {
-        padding-left: 150px;
-        margin-top: -50px;
     }
 
     .hero-text h1 {
-        color: #F8F8FF;
-        font-size: 100px;
+        font-size: 90px;
     }
 
     .hero-text h3 {
-        color: #f8f8ff;
-        font-size: 24px;
-        font-weight: normal;
-        margin-top: 10px;
+        font-size: 18px;
     }
 
     .hero-button {
-        width: 200px;
-        height: 70px;
-        border-radius: 50px;
-        margin-top: 50px;
-        border: 1px solid #f8f8ff;
-        background-color: transparent;
-        color: #f8f8ff;
-        font-size: 20px;
-        transition-duration: 0.4s;
+        margin-top: 20px;
+        width: 170px;
+        height: 60px;
+        font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .hero-container {
+        align-items: center;
+        justify-content: center;
     }
 
-    /* Media Queries */
-    @media screen and (max-width: 1150px) {
-        .hero-container {
-            align-items: center;
-            justify-content: center;
-            padding-top: 250px;
-        }
-
-        .hero-text {
-            padding-left: 10%; /* Use percentage for better responsiveness */
-            margin-top: 140px;
-        }
-
-        .hero-text h1 {
-            font-size: 90px;
-        }
-
-        .hero-text h3 {
-            font-size: 18px;
-        }
-
-        .hero-button {
-            margin-top: 20px;
-            width: 170px;
-            height: 60px;
-            font-size: 17px;
-        }
+    .hero-text {
+        margin-top: 10px;
     }
 
-    @media screen and (max-width: 1050px) {
-        .hero-container {
-            align-items: center;
-            justify-content: center;
-            padding-top: 450px;
-        }
-        .hero-text {
-            padding-left: 10%; /* Use percentage for better responsiveness */
-            margin-top: 10px;
-        }
-
-        .hero-text h1 {
-            font-size: 70px; /* Adjusted for better scaling */
-        }
-
-        .hero-text h3 {
-            font-size: 18px;
-        }
-
-        .hero-button {
-            width: 160px;
-            height: 55px;
-            font-size: 16px;
-        }
+    .hero-text h1 {
+        font-size: 70px;
     }
 
-    @media screen and (max-width: 798px) {
-        .hero-container {
-            align-items: center;
-            justify-content: center;
-            padding-top: 150px;
-        }
-
-        .hero-text {
-            padding-left: 5%; /* Use percentage for better responsiveness */
-            padding-right: 5%; /* Added padding-right for better spacing */
-            margin-top: 100px; /* Adjusted for better alignment */
-            text-align: center; /* Center text for smaller screens */
-        }
-
-        .hero-text h1 {
-            font-size: 50px; /* Adjusted for better scaling */
-        }
-
-        .hero-text h3 {
-            font-size: 16px;
-        }
-
-        .hero-button {
-            width: 150px;
-            height: 50px;
-            font-size: 15px;
-        }
+    .hero-text h3 {
+        font-size: 18px;
     }
+
+    .hero-button {
+        width: 160px;
+        height: 55px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 798px) {
+    .hero-container {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-text {
+        margin-top: 100px;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 50px;
+    }
+
+    .hero-text h3 {
+        font-size: 16px;
+    }
+
+    .hero-button {
+        width: 150px;
+        height: 50px;
+        font-size: 15px;
+    }
+}
+
 
     /* Hover Effects */
     .hero-button:hover {
@@ -362,79 +358,96 @@ ul {
 
 
     /* Introduction */
-.introduction-container {
-    width: 100%;
-    height: auto; /* Height adapt to content */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 150px; /* Initial padding for large screens */
-}
-
-.intro-section {
-    display: flex;
-    width: 100%;
-    height: auto; 
-    align-items: center;
-    justify-content: center;
-    padding: 20px; 
-}
-
-.intro-grid {
-    width: 100%;
-}
-
-.intro-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns: text on the left, image on the right */
-    gap: 20px; /* Add a consistent gap */
-}
-
-.introleft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px; /* Add padding for better spacing */
-}
-
-.reason-right img {
-    border-radius: 10px;
-    width: 100%; /* Make image responsive */
-    max-width: 500px; /* Add max-width for large screens */
-    height: auto; /* Ensure the image scales properly */
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
     .introduction-container {
-        padding: 40px 100px; /* Reduce padding on medium-large screens */
+        width: 100%;
+        height: auto; /* Change height to auto to adapt to content */
+        align-items: center;
+        padding: 50px 120px;
+        box-sizing: border-box;
     }
-}
 
-@media (max-width: 992px) {
-    .introduction-container {
-        padding: 30px 50px; /* Further reduce padding for tablet-sized screens */
+    .intro-section {
+        display: flex;
+        width: 100%;
+        height: auto; 
+        align-items: center;
+        justify-content: center;
+        padding: 20px; 
+    }
+
+    .intro-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+
+    .reason-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px; /* Add padding for better spacing on smaller screens */
+    }
+
+    .reason-right img {
+        border-radius: 10px;
+        width: 100%; /* Make image responsive */
+        max-width: 500px; /* Add max-width for large screens */
+    }
+
+    .reason-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px; /* Add padding for better spacing on smaller screens */
+    }
+
+    .reason-text {
+        width: 100%;
+        max-width: 700px; /* Add max-width for large screens */
+        height: auto; /* Change height to auto to adapt to content */
+    }
+
+    .reason-text h1 {
+        font-size: 40px; /* Reduce font-size for better readability on smaller screens */
+        color: #00a8e8;
+        padding-bottom: 20px;
+    }
+
+    .reason-text p {
+        font-size: 18px; /* Reduce font-size for better readability on smaller screens */
+        text-align: justify;
+        width: 100%;
+        max-width: 600px; /* Add max-width for large screens */
+    }
+
+@media (max-width: 1200px) {
+    .intro-grid {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        grid-template-rows: auto auto;
+    }
+
+    .reason-text h1 {
+        font-size: 2.5em; /* Adjust font size */
     }
 }
 
 @media (max-width: 768px) {
     .introduction-container {
-        padding: 20px 30px; /* Smaller padding for mobile screens */
+        padding: 10px 30px;
+    }
+    .reason-text h1 {
+        font-size: 2em; /* Adjust font size */
     }
 
-    .intro-row {
-        grid-template-columns: 1fr; /* Stack image and text vertically */
-        grid-template-rows: auto auto; /* Automatically adjust row heights */
+    .reason-text p {
+        font-size: 1em; /* Adjust font size */
     }
 
-    .reason-right {
-        order: -1; /* Move the image above the text */
-    }
-}
-
-@media (max-width: 576px) {
-    .introduction-container {
-        padding: 10px 20px; /* Minimal padding for very small screens */
+    .reason-right img {
+        height: 250px; /* Adjust height for smaller screens */
     }
 }
 
@@ -449,7 +462,7 @@ ul {
         text-align: center;
         flex-direction: column;
         display: flex;
-        padding: 30px;
+        padding: 30px 120px;
     }
 
     .product-intro-section{
@@ -479,6 +492,10 @@ ul {
             font-size: 18px;
             font-weight: normal;
             padding: 0 30 0 30;
+        }
+
+        .product-container{
+            padding: 10px 30px;
         }
     }
     .product-card {
@@ -662,7 +679,8 @@ ul {
         width: 100%;
         height: auto; /* Change height to auto to adapt to content */
         align-items: center;
-        padding: 30px 150px;
+        padding: 50px 120px;
+        box-sizing: border-box;
     }
 
     .reason-section {
@@ -671,24 +689,23 @@ ul {
         height: auto; 
         align-items: center;
         justify-content: center;
-        padding: 20px; 
+        /* padding: 20px;  */
     }
 
     .reason-grid {
-        width: 100%;
-    }
-
-    .reason-row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
+
 
     .reason-left {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 20px; /* Add padding for better spacing on smaller screens */
+        /* padding: 20px; */
     }
 
     .reason-left img {
@@ -701,7 +718,7 @@ ul {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 20px; /* Add padding for better spacing on smaller screens */
+        /* padding: 20px;  */
     }
 
     .reason-text {
@@ -729,7 +746,7 @@ ul {
         align-items: center;
         width: 100%;
         height: auto; /* Change height to auto to adapt to content */
-        padding: 20px; /* Add padding for better spacing on smaller screens */
+        /* padding: 20px;  */
     }
 
     .review-grid {
@@ -740,12 +757,12 @@ ul {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr;
-        column-gap: 50px; /* Reduce column-gap for better spacing on smaller screens */
+        /* column-gap: 50px;  */
     }
 
     .column-item {
         text-align: center;
-        padding: 20px; /* Add padding for better spacing on smaller screens */
+        padding: 20px;
     }
 
     .column-item h1 {
@@ -756,49 +773,35 @@ ul {
     .column-item h2 {
         font-size: 20px; /* Reduce font-size for better readability on smaller screens */
     }
-
     /* Responsive Design */
-    @media (max-width: 768px) {
-        .advantage-container {
-            padding: 0px;
-        }
-        .reason-row {
-            grid-template-columns: 1fr;
+    @media (max-width: 1200px) {
+        .reason-grid {
+            grid-template-columns: 1fr; /* Stack columns on smaller screens */
             grid-template-rows: auto auto;
         }
 
-        .review-row {
-            grid-template-columns: 1fr;
-            grid-template-rows: auto auto auto;
-        }
-
         .reason-text h1 {
-            font-size: 30px; /* Further reduce font-size for smaller screens */
-            margin: 0;
-            padding-left: 10px;
-            padding-right: 10px;
+            font-size: 2.5em; /* Adjust font size */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .advantage-container {
+            padding: 10px 30px;
+        }
+        .reason-text h1 {
+            font-size: 2em; /* Adjust font size */
         }
 
         .reason-text p {
-            font-size: 16px; /* Further reduce font-size for smaller screens */
-            padding-left: 10px;
-            padding-right: 10px;
+            font-size: 1em; /* Adjust font size */
         }
 
-        .column-item h1 {
-            font-size: 30px; /* Further reduce font-size for smaller screens */
-            margin: 0;
-        }
-
-        .column-item h2 {
-            font-size: 18px; /* Further reduce font-size for smaller screens */
-            margin: 0;
-    
-        }
-        .advantage-container{
-            padding: 0px;
+        .reason-left img {
+            height: 350px; /* Adjust height for smaller screens */
         }
     }
+    /*end of advantage*/
  /* Ensures */
 .ensure-container {
     width: 100%;
@@ -828,15 +831,15 @@ ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 4 columns on large screens */
     column-gap: 50px;
-    row-gap: 30px; /* Add row gap for spacing */
+    row-gap: 50px; /* Add row gap for spacing */
     width: 100%;
     padding: 0 20px;   
 }
 
-.ensure-card:nth-child(4) {
-    grid-column: 2 / 3; /* Place the card in the middle column */
-    justify-self: center; /* Center the card horizontally */
-}
+/* .ensure-card:nth-child(4) {
+    grid-column: 2 / 3; 
+    justify-self: center;
+}  */
 .avatar-wrapper {
     display: flex;
     align-items: center;
@@ -885,6 +888,7 @@ ul {
     border-radius: 10px;
     text-align: center;
     margin: 20px auto;
+    gap : 10px
 }
 
 /* Responsive Design */
