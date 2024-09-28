@@ -61,6 +61,44 @@ html{
     transition: 0.5s;
 }
 
+.dropdown-menuflag {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background: #F8F8FF;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.dropdown-menuflag li {
+    margin: 5px 0;
+}
+
+.dropdown-menuflag li a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menuflag li a:hover {
+    color: #90eeef;
+}
+
+.link-item:hover .dropdown-menuflag {
+    display: block; /* Show dropdown on hover */
+}
+
+.flag-icon {
+    width: 20px;
+    height: 15px;
+    margin-right: 8px;
+}
+
+
 @media screen and (max-width   : 800px){
 
     .header .links{
@@ -98,8 +136,7 @@ html{
 }
 .dropdown-menu{
     position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
+    background: black;
     height: 0;
     width: 300px;
     left: 0;
@@ -108,6 +145,19 @@ html{
     list-style: none;
     transition: all 0.5s ease;
 }
+
+.dropdown-menuflag {
+    display: none; /* Initially hidden */
+    position: absolute;
+    background: #F8F8FF;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+    border-radius: 5px;
+    z-index: 1000;
+}
+
 
 .dropdown-menu .link-item {
     padding: 0.7rem;
@@ -539,15 +589,16 @@ th, td {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    padding: 0 150px;
+    padding: 30px;
 }
 
 .wrapper-body{
     display: flex;
-    padding: 50px 35px;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: auto;
+    width: 100%;
 }
 
 .wrapper .carousel{
@@ -708,14 +759,15 @@ th, td {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     width: 100%;
     padding-top: 20px; 
+    gap: 20px;
 }
 
 table {
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
     border-collapse: collapse;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: auto;
 }
 
 th, td {
@@ -724,6 +776,7 @@ th, td {
     text-align: center;
     color: #f8f8ff;
     font-weight: normal;
+    
 }
 
 .OD {
@@ -761,13 +814,13 @@ th, td {
     color: #07AFD2;
     font-weight: bold;
     margin-bottom: 10px;
+    
 }
 
 .right-index p {
     font-size: 18px;
     color: #f8f8ff;
     text-align: justify;
-    padding-left: 50px;
 }
 
 .divider-wrapper {
@@ -794,6 +847,7 @@ th, td {
 
     .right-index h3 {
         font-size: 20px;
+        
     }
 
     .right-index p {
@@ -805,7 +859,15 @@ th, td {
     .indexes-container{
         padding: 0px 20px;
         padding-bottom: 100px;
+        gap: 20px;
+      
     }
+
+    .index-grid {
+        gap: 20px;
+    }
+
+
 }
 
 @media (max-width: 480px) {
@@ -820,7 +882,24 @@ th, td {
     .right-index p {
         font-size: 14px;
     }
+
+    /* Membuat tabel berada di tengah halaman */
+    table {
+        width: 100%; /* Memastikan tabel mengambil seluruh lebar yang tersedia */
+        max-width: 100%; /* Membatasi lebar tabel agar tidak lebih besar dari kontainer */
+        overflow-x: auto; /* Mengaktifkan scroll horizontal jika tabel lebih lebar dari layar */
+        margin: 0 auto; /* Menempatkan tabel di tengah */
+
+    }
+
+    /* Mengatur padding dan ukuran font dalam sel tabel */
+    th, td {
+        padding: 5px; /* Mengurangi padding untuk menghemat ruang */
+        font-size: 12px; /* Mengurangi ukuran font dalam tabel */
+        text-align: center; /* Rata tengah teks di dalam sel */
+    }
 }
+
 /* End of Indexes */
     
 /* Start of Footer */
@@ -870,7 +949,6 @@ ul{
     content: '';
     position: absolute;
     left: 0;
-    bottom: -10px;
     height: 2px;
     box-sizing: border-box;
     width: 50px;
